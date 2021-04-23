@@ -112,9 +112,7 @@ class MakeReleaseCommand(Command):
             ]
             for version, python in sorted(pythons.items()):
                 self.line(
-                    "<info>Preparing files for Python <comment>{}</comment></info>".format(
-                        version
-                    )
+                    f"<info>Preparing files for Python <comment>{version}</comment></info>"
                 )
 
                 with temporary_directory() as tmp_venv_dir:
@@ -243,9 +241,7 @@ class MakeReleaseCommand(Command):
         bar = self.progress_bar(max=len(packages))
         bar.set_format("%message% %current%/%max%")
         bar.set_message(
-            "<info>Vendorizing dependencies for Python <comment>{}</comment></info>".format(
-                python_version
-            )
+            "<info>Vendorizing dependencies for Python <comment>{python_version}</comment></info>"
         )
         bar.start()
         for package in packages:

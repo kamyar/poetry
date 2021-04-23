@@ -48,8 +48,7 @@ class NewCommand(Command):
             if list(path.glob("*")):
                 # Directory is not empty. Aborting.
                 raise RuntimeError(
-                    "Destination <fg=yellow>{}</> "
-                    "exists and is not empty".format(path)
+                    f"Destination <fg=yellow>{path}</> " "exists and is not empty"
                 )
 
         readme_format = self.option("readme") or "md"

@@ -431,9 +431,7 @@ class Installer:
         Installs Poetry in $POETRY_HOME.
         """
         self._write(
-            "Installing {} ({})".format(
-                colorize("info", "Poetry"), colorize("info", version)
-            )
+            f"Installing {colorize('info', 'Poetry')} ({colorize('info', version)})"
         )
 
         env_path = self.make_env(version)

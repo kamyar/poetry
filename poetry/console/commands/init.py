@@ -147,9 +147,7 @@ The <c1>init</c1> command creates a basic <comment>pyproject.toml</> file in the
                 ".".join(str(v) for v in current_env.version_info[:2])
             )
             question = self.create_question(
-                "Compatible Python versions [<comment>{}</comment>]: ".format(
-                    default_python
-                ),
+                f"Compatible Python versions [<comment>{default_python}</comment>]: ",
                 default=default_python,
             )
             python = self.ask(question)
@@ -275,9 +273,7 @@ The <c1>init</c1> command creates a basic <comment>pyproject.toml</> file in the
                         choices.append(found_package.pretty_name)
 
                     self.line(
-                        "Found <info>{}</info> packages matching <c1>{}</c1>".format(
-                            len(matches), package
-                        )
+                        f"Found <info>{len(matches)}</info> packages matching <c1>{package}</c1>"
                     )
 
                     package = self.choice(
@@ -307,9 +303,7 @@ The <c1>init</c1> command creates a basic <comment>pyproject.toml</> file in the
                         )
 
                         self.line(
-                            "Using version <b>{}</b> for <c1>{}</c1>".format(
-                                package_constraint, package
-                            )
+                            f"Using version <b>{package_constraint}</b> for <c1>{package}</c1>"
                         )
 
                     constraint["version"] = package_constraint

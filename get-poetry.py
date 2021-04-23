@@ -620,9 +620,7 @@ class Installer:
             # Checking hashes
             if checksum != sha.hexdigest():
                 raise RuntimeError(
-                    "Hashes for {} do not match: {} != {}".format(
-                        name, checksum, sha.hexdigest()
-                    )
+                    f"Hashes for {name} do not match: {checksum} != {sha.hexdigest()}"
                 )
 
             self.extract_lib(tar)
@@ -764,9 +762,7 @@ class Installer:
             print(
                 colorize(
                     "warning",
-                    "\nPATH already contains {} and thus was not modified.".format(
-                        POETRY_BIN
-                    ),
+                    f"\nPATH already contains {POETRY_BIN} and thus was not modified.",
                 )
             )
 
@@ -843,9 +839,7 @@ class Installer:
             ["fish", "-c", "echo $fish_user_paths"]
         ).decode("utf-8")
         if POETRY_BIN in fish_user_paths:
-            cmd = "set -U fish_user_paths (string match -v {} $fish_user_paths)".format(
-                POETRY_BIN
-            )
+            cmd = f"set -U fish_user_paths (string match -v {POETRY_BIN} $fish_user_paths)"
             set_fish_user_path = ["fish", "-c", f"{cmd}"]
             subprocess.check_output(set_fish_user_path)
 

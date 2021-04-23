@@ -50,8 +50,8 @@ the config command.
         if self.option("build"):
             if publisher.files:
                 if not self.confirm(
-                    "There are <info>{}</info> files ready for publishing. "
-                    "Build anyway?".format(len(publisher.files))
+                    f"There are <info>{len(publisher.files)}</info> files ready for publishing. "
+                    "Build anyway?"
                 ):
                     self.line_error("<error>Aborted!</error>")
 

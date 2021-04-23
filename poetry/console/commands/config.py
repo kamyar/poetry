@@ -222,7 +222,7 @@ To remove a repository (repo is a short alias for repositories):
                 elif len(values) != 2:
                     raise ValueError(
                         "Expected one or two arguments "
-                        "(username, password), got {}".format(len(values))
+                        f"(username, password), got {len(values)}"
                     )
                 else:
                     username = values[0]
