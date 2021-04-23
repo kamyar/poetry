@@ -243,9 +243,7 @@ class SitePackages:
                 str, self._candidates if not writable_only else self.writable_candidates
             )
         )
-        yield from metadata.PathDistribution.discover(
-            name=name, path=path
-        )
+        yield from metadata.PathDistribution.discover(name=name, path=path)
 
     def find_distribution(
         self, name: str, writable_only: bool = False
@@ -873,9 +871,7 @@ class EnvManager:
 
                 return SystemEnv(Path(sys.prefix))
 
-            io.write_line(
-                f"Creating virtualenv <c1>{name}</> in {str(venv_path)}"
-            )
+            io.write_line(f"Creating virtualenv <c1>{name}</> in {str(venv_path)}")
 
             self.build_venv(
                 venv,
@@ -890,9 +886,7 @@ class EnvManager:
                             env.path
                         )
                     )
-                io.write_line(
-                    f"Recreating virtualenv <c1>{name}</> in {str(venv)}"
-                )
+                io.write_line(f"Recreating virtualenv <c1>{name}</> in {str(venv)}")
                 self.remove_venv(venv)
                 self.build_venv(
                     venv,
