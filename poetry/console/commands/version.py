@@ -55,12 +55,10 @@ patch, minor, major, prepatch, preminor, premajor, prerelease.
             )
 
             if self.option("short"):
-                self.line(f"{version}")
+                self.line(str(version))
             else:
                 self.line(
-                    "Bumping version from <b>{}</> to <fg=green>{}</>".format(
-                        self.poetry.package.pretty_version, version
-                    )
+                    f"Bumping version from <b>{self.poetry.package.pretty_version}</> to <fg=green>{version}</>"
                 )
 
             content = self.poetry.file.read()
@@ -70,12 +68,10 @@ patch, minor, major, prepatch, preminor, premajor, prerelease.
             self.poetry.file.write(content)
         else:
             if self.option("short"):
-                self.line(f"{self.poetry.package.pretty_version}")
+                self.line(str(self.poetry.package.pretty_version))
             else:
                 self.line(
-                    "<comment>{}</> <info>{}</>".format(
-                        self.poetry.package.name, self.poetry.package.pretty_version
-                    )
+                    f"<comment>{self.poetry.package.name}</> <info>{self.poetry.package.pretty_version}</>"
                 )
 
     def increment_version(self, version: str, rule: str) -> "Version":
